@@ -1,0 +1,10 @@
+This is a tiny HTTP tool using Apache HttpComponents and based on Java 8, it
+can be used to execute small http tasks like downloading the small web sites or
+preparing testing data.
+
+The HttpTask is a task of single request, while HttpJob is a work flow contains
+multiple tasks. The basic structure of the Doggy is:
+    Runner -> HttpJob -> (TaskName, PageParser)... -> HttpTask...
+HttpJob will construct new HttpTask by the given pair of task name and page
+parser. So the job will call the corresponding parsers to parse the page
+based on the task name.

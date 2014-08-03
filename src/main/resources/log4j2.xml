@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="ConsoleLog" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d %p %c{1} %t]$ %m%n"/>
+        </Console>
+        <File name="FileLog" fileName="/var/log/Doggy/${sys:logfile}.log">
+            <PatternLayout>
+                <Pattern>[%d %p %c{1} %t]$ %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.github.simpleexpress.task" level="info">
+            <AppenderRef ref="FileLog" />
+        </Logger>
+        <Logger name="com.github.simpleexpress.page" level="warn">
+            <AppenderRef ref="FileLog" />
+        </Logger>
+        <Logger name="com.github.simpleexpress.populate" level="info">
+            <AppenderRef ref="FileLog" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="ConsoleLog"/>
+        </Root>
+    </Loggers>
+</Configuration>
